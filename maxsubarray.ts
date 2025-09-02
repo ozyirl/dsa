@@ -4,7 +4,7 @@ function maxSubArray(nums: number[]): number {
   let c = nums[0];
   let b = nums[0];
 
-  for (let i = 0; i < nums.length; i++) {
+  for (let i = 1; i < nums.length; i++) {
     c = Math.max(nums[i], c + nums[i]);
     b = Math.max(b, c);
   }
