@@ -15,8 +15,11 @@ function linearSearch(nums: number[], target: number): returns {
       yes = true;
     }
   }
-
-  return { index: result, exist: yes };
+  let newType: returns = {
+    index: result,
+    exist: yes,
+  };
+  return newType;
 }
 
 console.log(linearSearch(nums, target));
