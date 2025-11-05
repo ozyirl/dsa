@@ -15,7 +15,6 @@ function walk(
   seen: boolean[][],
   path: Point[]
 ): boolean {
-  // out of bounds
   if (
     curr.x < 0 ||
     curr.x >= maze[0].length ||
@@ -24,19 +23,15 @@ function walk(
   )
     return false;
 
-  // wall
   if (maze[curr.y][curr.x] === wall) return false;
 
-  // reached end
   if (curr.x === end.x && curr.y === end.y) {
     path.push(curr);
     return true;
   }
 
-  // seen
   if (seen[curr.y][curr.x]) return false;
 
-  // mark & explore
   seen[curr.y][curr.x] = true;
   path.push(curr);
 
@@ -47,7 +42,6 @@ function walk(
     }
   }
 
-  // backtrack
   path.pop();
   return false;
 }
@@ -74,8 +68,8 @@ const maze = [
   "x xxxxxxxxx x",
 ];
 
-const start = { x: 11, y: 0 }; // opening at top
-const end = { x: 1, y: 5 }; // opening at bottom
+const start = { x: 11, y: 0 };
+const end = { x: 1, y: 5 };
 const wall = "x";
 
 console.log(solve(maze, wall, start, end));
